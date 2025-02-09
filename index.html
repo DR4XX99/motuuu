@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #d63384;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5rem;
+        }
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            bottom: -10px;
+            color: #ff4d6d;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .photo-gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 5px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>For Myy motuuuu babbyyyyyyy ❤️</h1>
+    <div class="hearts"></div>
+    
+    <div class="container">
+        <h2>प्रेमपत्र 💌</h2>
+        <p>My dearest love,</p>
+        <p>You are the light of my life, my happiness, and my greatest blessing. Every moment with you is precious, and I cherish our love more than words can express. I promise to stand by your side, always and forever.i lovee you a lott, bhott saara kuch zyadaa hiii motuuu and i am sooo fuckingg happyy ki i am with you andd you are minee ki it just makess me sooo happyyyy ki basss koi seemaa hi nahi hai meri happiness ki, aisa sa lagta hai ki chote bache nahi hote wo wish karte hai hume ek angel dedo as a girlfriend ha to mei wo bacha hu jiski wish puri hogayi hehheheehhe. youuu are sooo preettyyyyy andd humee 2 saal se bhi zyada timee ho gayaa hai saathh meii ii loveeeee youuuu soo muchhhh yaaaaarrrrrrrrrr, mere paas shabdo ki kami pad jaati hai aapke baare me likhna shuru karu mei to, itne fantastic ho aap merii jaanemannn meri mehboobaaa.
+            you are that song of my life jisko mei chahe jitni bhi baar sunlu na kabhi man bharta hai na hi bore hota hu bas man karta hai sunte rahooo... ❤️</p>
+    </div>
+    
+    <div class="container photo-gallery">
+        <h2>Photo Gallery 📸</h2>
+        <img src="IMG-20250209-WA0002.jpg" >
+        <img src="IMG-20250209-WA0003.jpg" >
+        <img src="IMG-20250209-WA0004.jpg" >
+        <img src="IMG-20250209-WA0005.jpg" >
+        <img src="IMG-20250209-WA0006.jpg">
+        <img src="IMG-20250209-WA0007.jpg">
+        <img src="IMG-20250209-WA0008.jpg">
+        <img src="IMG-20250209-WA0009.jpg">
+        <img src="IMG-20250209-WA0010.jpg">
+        <img src="IMG-20250209-WA0011.jpg">
+        <img src="IMG-20250209-WA0012.jpg">
+        <img src="IMG-20250209-WA0013.jpg">
+        
+    </div>
+    <div class="container">
+        <h2>poems 💖</h2>
+        <button onclick="generatePoem()">Generate a Love Poem</button>
+        <p class="poem-output" id="poem"></p>
+    </div>
+    <div class="container">
+        <h2>Our time together.. ⏳</h2>
+        <p class="timer" id="timer"></p>
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.querySelector('.hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 100);
+        function generatePoem() {
+            const poems = [
+                "Your smile shines like the morning sun,\nWith you, my love, my heart's undone.",
+                "In your embrace, I find my home,\nWith you, my love, I'll never roam.",
+                "Like a rose in the soft spring light,\nYou make my world forever bright.",
+                "Your love is a melody so sweet,\nEvery heartbeat, a rhythmic beat."
+            ];
+            document.getElementById("poem").innerText = poems[Math.floor(Math.random() * poems.length)];
+        }
+        function updateTimer() {
+            const firstMetDate = new Date("2022-11-27"); // Change to the actual date you met
+            const now = new Date();
+            const difference = now - firstMetDate;
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((difference / (1000 * 60)) % 60);
+            const seconds = Math.floor((difference / 1000) % 60);
+            
+            document.getElementById("timer").innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
